@@ -15,10 +15,10 @@ const monate = [
   'Dezember',
 ];
 
-const wochenTage = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+const wochenTage = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
 const jahrAnzeige = document.getElementById('jahr');
-const monatAnzeige = document.getElementById('monat');
+const datumAnzeige = document.getElementById('datum');
 const tagAnzeige = document.getElementById('tag');
 const stundeAnzeige = document.getElementById('stunde');
 const minuteAnzeige = document.getElementById('minute');
@@ -39,35 +39,62 @@ const minute = d.getMinutes();
 const sekunde = d.getSeconds();
 const milli = d.getMilliseconds();
 
-console.log(tag);
-console.log(wochenTage[tag]);
-console.log(monate[monat]);
+// console testing
+console.groupCollapsed('uhr');
 console.log(stunde);
 console.log(minute);
 console.log(sekunde);
+console.groupEnd('uhr end');
 
-if (stunde < 10) {
-  stundeAnzeige.innerHTML = `0${stunde}`;
-} else {
-  stundeAnzeige.innerHTML = stunde;
-}
+console.groupCollapsed('datum');
+console.log(wochenTage[tag]);
+console.log(date);
+console.log(monate[monat]);
+console.log(`${date}.${monat + 1}.${jahr}`);
+console.groupEnd('datum end');
 
-if (minute < 10) {
-  minuteAnzeige.innerHTML = `0${minute}`;
-} else {
-  minuteAnzeige.innerHTML = minute;
-}
+const x = monate.map((ele, index) => [ele, index + 1]);
+const y = wochenTage.map((ele, index) => [ele, index]);
+const z = wochenTage.map((abk) => abk.slice(0, 2).toUpperCase());
+const w = wochenTage.map((ele) => ele);
 
-if (sekunde < 10) {
-  sekundeAnzeige.innerHTML = `0${sekunde}`;
-} else {
-  sekundeAnzeige.innerHTML = sekunde;
-}
+console.log(z);
+console.log('%c%s', 'color: white; font-size: 1.1em; font-weight: bold; background: red; padding: 10px', `📅 ${w}`);
+
+const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
+
+console.log(
+  '%c%s%c%s',
+  'color: white; font-size: 1.1em; font-weight: bold; background: red; padding: 10px',
+  `${animals[monat]} ${monate[monat].toUpperCase()}`,
+  'color: gray; font-size: 3em; padding-left: 15px',
+  `${animals[tag]} ${wochenTage[tag]}`
+);
+console.warn(x);
+console.error(y);
+console.log('%cSomething to style', 'color: white; padding: 10px; background: dodgerblue');
+console.trace(monate);
+
+const kleinerZehn = (test) => {
+  let m;
+  if (test < 10) {
+    m = `0${test}`;
+  } else {
+    m = test;
+  }
+  return m;
+};
+
+console.log(kleinerZehn(stunde));
+console.log(kleinerZehn(minute));
+console.log(kleinerZehn(sekunde));
 
 jahrAnzeige.innerHTML = jahr;
-monatAnzeige.innerHTML = monat;
+datumAnzeige.innerHTML = `${date}.${monat + 1}.${jahr}`;
 tagAnzeige.innerHTML = date;
-minuteAnzeige.innerHTML = minute;
+stundeAnzeige.innerHTML = `${kleinerZehn(stunde)}:`;
+minuteAnzeige.innerHTML = `${kleinerZehn(minute)}:`;
+sekundeAnzeige.innerHTML = kleinerZehn(sekunde);
 milliAnzeige.innerHTML = milli;
 wochenTagAnzeige.innerHTML = wochenTage[tag];
 monatsNameAnzeige.innerHTML = monate[monat];
