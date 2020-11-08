@@ -1,5 +1,3 @@
-console.log('test');
-
 const monate = [
   'Januar',
   'Februar',
@@ -14,7 +12,6 @@ const monate = [
   'November',
   'Dezember',
 ];
-
 const wochenTage = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
 const jahrAnzeige = document.getElementById('jahr');
@@ -28,81 +25,67 @@ const milliAnzeige = document.getElementById('milisekunden');
 const wochenTagAnzeige = document.getElementById('wochen-tag');
 const monatsNameAnzeige = document.getElementById('monats-name');
 
-const d = new Date();
+function clock() {
+  const d = new Date();
 
-const jahr = d.getFullYear();
-const monat = d.getMonth();
-const date = d.getDate();
-const tag = d.getDay();
-const stunde = d.getHours();
-const minute = d.getMinutes();
-const sekunde = d.getSeconds();
-const milli = d.getMilliseconds();
+  const jahr = d.getFullYear();
+  const monat = d.getMonth();
+  const date = d.getDate();
+  const tag = d.getDay();
+  const stunde = d.getHours();
+  const minute = d.getMinutes();
+  const sekunde = d.getSeconds();
+  const milli = d.getMilliseconds();
 
-// console testing
-console.groupCollapsed('uhr');
-console.log(stunde);
-console.log(minute);
-console.log(sekunde);
-console.groupEnd('uhr end');
+  const kleinerZehn = (num) => (num < 10 ? `0${num}` : num);
+  const kleinerHundert = (num) => (num < 100 ? `0${num}` : num);
 
-console.groupCollapsed('datum');
-console.log(wochenTage[tag]);
-console.log(date);
-console.log(monate[monat]);
-console.log(`${date}.${monat + 1}.${jahr}`);
-console.groupEnd('datum end');
+  jahrAnzeige.innerHTML = jahr;
+  datumAnzeige.innerHTML = `${date}.${monat + 1}.${jahr}`;
+  tagAnzeige.innerHTML = date;
+  stundeAnzeige.innerHTML = `${kleinerZehn(stunde)}:`;
+  minuteAnzeige.innerHTML = `${kleinerZehn(minute)}:`;
+  sekundeAnzeige.innerHTML = kleinerZehn(sekunde);
+  milliAnzeige.innerHTML = kleinerHundert(milli);
+  wochenTagAnzeige.innerHTML = wochenTage[tag];
+  monatsNameAnzeige.innerHTML = monate[monat];
 
-const x = monate.map((ele, index) => [ele, index + 1]);
-const y = wochenTage.map((ele, index) => [ele, index]);
-const z = wochenTage.map((abk) => abk.slice(0, 2).toUpperCase());
-const w = wochenTage.map((ele) => ele);
+  const testColor = function () {
+    if (sekunde % 5 === 0) {
+      const x = `rgb(${randomZahl()})`;
+      const y = `rgb(${randomZahl()})`;
+      const z = `rgb(${randomZahl()})`;
+      jahrAnzeige.style.backgroundColor = x;
+      datumAnzeige.style.backgroundColor = y;
+      tagAnzeige.style.backgroundColor = z;
+      stundeAnzeige.style.backgroundColor = z;
+      minuteAnzeige.style.backgroundColor = z;
+      sekundeAnzeige.style.backgroundColor = z;
+      milliAnzeige.style.backgroundColor = z;
+      wochenTagAnzeige.style.backgroundColor = y;
+      monatsNameAnzeige.style.backgroundColor = z;
+      document.querySelector('.clock').style.backgroundColor = x;
+      document.querySelector('.uhr-anzeige').style.backgroundColor = y;
+      document.querySelector('.clock-display').style.backgroundColor = z;
+      document.querySelector('.datum-anzeige').style.backgroundColor = y;
+      // document.querySelector('.datum-anzeige').style.display = 'block';
+    } else {
+      // document.querySelector('.datum-anzeige').style.display = 'flex';
+      sekundeAnzeige.style.fontSize = '10rem';
+      tagAnzeige.toUpperCase();
+    }
+  };
+  testColor();
+}
 
-console.log(z);
-console.log('%c%s', 'color: white; font-size: 1.1em; font-weight: bold; background: red; padding: 10px', `📅 ${w}`);
+const inter = setInterval(clock, 400);
 
-const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮'];
-
-console.log(
-  '%c%s%c%s',
-  'color: white; font-size: 1.1em; font-weight: bold; background: red; padding: 10px',
-  `${animals[monat]} ${monate[monat].toUpperCase()}`,
-  'color: gray; font-size: 3em; padding-left: 15px',
-  `${animals[tag]} ${wochenTage[tag]}`
-);
-console.warn(x);
-console.error(y);
-console.log('%cSomething to style', 'color: white; padding: 10px; background: dodgerblue');
-console.trace(monate);
-
-const kleinerZehn = (test) => {
-  let m;
-  if (test < 10) {
-    m = `0${test}`;
-  } else {
-    m = test;
-  }
-  return m;
+// Zufallszahl von 0 bis 255
+const generateRandom = () => Math.floor(Math.random() * 255);
+// drei zufallsZahlen von 255 in Array [R,G,B]
+const randomZahl = function () {
+  const containerRGB = [generateRandom(), generateRandom(), generateRandom()];
+  return containerRGB.join();
 };
 
-console.log(kleinerZehn(stunde));
-console.log(kleinerZehn(minute));
-console.log(kleinerZehn(sekunde));
-
-jahrAnzeige.innerHTML = jahr;
-datumAnzeige.innerHTML = `${date}.${monat + 1}.${jahr}`;
-tagAnzeige.innerHTML = date;
-stundeAnzeige.innerHTML = `${kleinerZehn(stunde)}:`;
-minuteAnzeige.innerHTML = `${kleinerZehn(minute)}:`;
-sekundeAnzeige.innerHTML = kleinerZehn(sekunde);
-milliAnzeige.innerHTML = milli;
-wochenTagAnzeige.innerHTML = wochenTage[tag];
-monatsNameAnzeige.innerHTML = monate[monat];
-
-// console.log(jahr);
-// console.log(monat);
-// console.log(tag);
-// console.log(stunde);
-// console.log(minute);
-// console.log(sekunde);
-// console.log(milli);
+console.log(randomZahl());

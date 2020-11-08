@@ -13,6 +13,10 @@ html {
   font-family: "Roboto Mono", monospace;
 }
 
+body {
+  font-size: 2rem;
+}
+
 h1 {
   font-size: 2.5rem;
 }
@@ -48,23 +52,63 @@ a {
   color: #2c2c2c;
 }
 
-.clock-display {
-  font-size: 2.5rem;
+.clock {
+  margin: 0 0 0 auto;
+  background-color: lightgreen;
+  height: 100vh;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
-.uhr {
+.container {
+  margin: 0 auto;
+  width: 85%;
+  padding: 5rem;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.clock-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 2rem;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
-.datum-box {
+.clock-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 2rem;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.datum-anzeige {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,9 +118,43 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 80%;
+  padding: 2rem;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
-.test {
-  background-color: #38a4d3;
+.datum-anzeige div {
+  padding: 10px;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.datum-anzeige div:first-child {
+  color: #fff;
+}
+
+.uhr-anzeige {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: darkgoldenrod;
+  padding: 20rem;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 /*# sourceMappingURL=style.css.map */

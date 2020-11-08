@@ -14,22 +14,4 @@ $gray-text: #2c2c2c;
   flex-direction: $direction;
 }
 @import "global";
-
-.clock-display {
-  font-size: $header3;
-}
-
-.uhr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.datum-box {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.test {
-  background-color: #38a4d3;
-}
+@import "clock";

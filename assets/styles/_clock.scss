@@ -1,0 +1,49 @@
+.clock {
+  margin: 0 0 0 auto;
+  background-color: lightgreen;
+  height: 100vh;
+  transition: all 2s ease-in-out;
+}
+
+.container {
+  margin: 0 auto;
+  width: 85%;
+  padding: 5rem;
+  transition: all 2s ease-in-out;
+}
+
+.clock-text {
+  @include flex(space-between, center, row);
+  flex-wrap: wrap;
+  padding: 2rem;
+  transition: all 2s ease-in-out;
+}
+
+.clock-display {
+  @include flex(space-between, center, row);
+  padding: 2rem;
+  transition: all 2s ease-in-out;
+}
+
+.datum-anzeige {
+  @include flex(space-evenly, center, row);
+  width: 80%;
+  padding: 2rem;
+  transition: all 2s ease-in-out;
+}
+
+.datum-anzeige div {
+  padding: 10px;
+  transition: all 2s ease-in-out;
+}
+
+.datum-anzeige div:first-child {
+  color: #fff;
+}
+
+.uhr-anzeige {
+  @include flex(space-evenly, center, row);
+  background-color: darkgoldenrod;
+  padding: 20rem;
+  transition: all 2s ease-in-out;
+}
