@@ -73,6 +73,7 @@ function clock() {
       // document.querySelector('.datum-anzeige').style.display = 'flex';
       sekundeAnzeige.style.fontSize = '10rem';
       tagAnzeige.toUpperCase();
+      document.querySelector('.clock-display').style.filter = 'brightness(150%)';
     }
   };
   testColor();
