@@ -31,6 +31,8 @@ const uhrKasten = document.querySelector('.uhr-anzeige');
 const clockKasten = document.querySelector('.clock-display');
 const datumKasten = document.querySelector('.datum-anzeige');
 
+const counter = document.getElementById('counter');
+const anzeige = [clockContainer, uhrKasten, clockKasten, datumKasten];
 // Zufallszahl von 0 bis 255
 const generateRandom = () => Math.floor(Math.random() * 255);
 // drei zufallsZahlen von 255 in Array [R,G,B]
@@ -38,6 +40,20 @@ const randomZahl = function () {
   const containerRGB = [generateRandom(), generateRandom(), generateRandom()];
   return containerRGB.join();
 };
+
+// counter
+let count = 0;
+function counting() {
+  count += 1;
+  console.log(count);
+  counter.innerText = count;
+  if (count % 3 === 0) {
+    anzeige.map((x) => x.classList.toggle('selected1'));
+    anzeige.map((x) => (x.style.fontSize = '3rem'));
+  } else {
+    anzeige.map((x) => (x.style.fontSize = '2rem'));
+  }
+}
 
 function handler(ev) {
   const e = ev || window.Event;
@@ -49,6 +65,7 @@ function handler(ev) {
   console.log(this);
   target.style.backgroundColor = `rgb(${randomZahl()})`;
   target.classList.toggle('selected1');
+  counting();
   // target.style.transform = 'rotate(-180deg)';
 }
 
@@ -59,6 +76,49 @@ function init() {
   }
 }
 
+const schwarzKasten = function () {
+  const anzeige1 = [clockContainer, uhrKasten, clockKasten, datumKasten];
+  anzeige1.map((x) => (x.style.backgroundColor = `red`));
+  anzeige1.map((x) => x.classList.toggle('selected1'));
+};
+
+const isTeiler = (num) => num % 13 === 0;
+const start = function () {
+  const x = `rgb(${randomZahl()})`;
+  const y = `rgb(${randomZahl()})`;
+  const z = `rgb(${randomZahl()})`;
+  const anzeigeX = [jahrAnzeige, wochenTagAnzeige];
+  const anzeigeY = [
+    datumAnzeige,
+    uhrKasten,
+    datumKasten,
+    sekundeAnzeige,
+    minuteAnzeige,
+    stundeAnzeige,
+    tagAnzeige,
+    monatsNameAnzeige,
+  ];
+  const anzeigeZ = [
+    tagAnzeige,
+    stundeAnzeige,
+    minuteAnzeige,
+    sekundeAnzeige,
+    milliAnzeige,
+    monatsNameAnzeige,
+    clockKasten,
+  ];
+
+  anzeigeX.map((el) => (el.style.backgroundColor = x));
+  anzeigeY.map((el) => (el.style.backgroundColor = y));
+  anzeigeZ.map((el) => (el.style.backgroundColor = z));
+
+  clockContainer.style.backgroundColor = `rgb(${randomZahl()})`;
+  document.querySelector('#zeit').style.color = `rgb(${randomZahl()})`;
+  datumAnzeige.style.color = '#fff';
+  jahrAnzeige.style.color = z;
+  wochenTagAnzeige.style.color = z;
+  counter.style.color = z;
+};
 function clock() {
   const d = new Date();
 
@@ -95,68 +155,20 @@ function clock() {
   monatsNameAnzeige.innerHTML = monate[monat];
 
   const testColor = function () {
-    if (sekunde % 5 === 0) {
-      const x = `rgb(${randomZahl()})`;
-      const y = `rgb(${randomZahl()})`;
-      const z = `rgb(${randomZahl()})`;
-      jahrAnzeige.style.backgroundColor = x;
-      datumAnzeige.style.backgroundColor = y;
-      tagAnzeige.style.backgroundColor = z;
-      stundeAnzeige.style.backgroundColor = z;
-      minuteAnzeige.style.backgroundColor = z;
-      sekundeAnzeige.style.backgroundColor = z;
-      milliAnzeige.style.backgroundColor = z;
-      wochenTagAnzeige.style.backgroundColor = x;
-      monatsNameAnzeige.style.backgroundColor = z;
-      clockContainer.style.backgroundColor = `rgb(${randomZahl()})`;
-      uhrKasten.style.backgroundColor = y;
-      clockKasten.style.backgroundColor = z;
-      datumKasten.style.backgroundColor = y;
-      document.querySelector('#zeit').style.color = `rgb(${randomZahl()})`;
-
-      sekundeAnzeige.style.color = y;
-      minuteAnzeige.style.color = y;
-      stundeAnzeige.style.color = y;
-      tagAnzeige.style.color = y;
-      monatsNameAnzeige.style.color = y;
-      datumAnzeige.style.color = '#fff';
-
-      jahrAnzeige.style.color = z;
-      wochenTagAnzeige.style.color = z;
-      // document.querySelector('.datum-anzeige').style.display = 'block';
+    if (sekunde % 10 === 0) {
+      start();
+    } else if (isTeiler(sekunde)) {
+      schwarzKasten();
     } else {
-      // document.querySelector('.datum-anzeige').style.display = 'flex';
       sekundeAnzeige.style.fontSize = '10rem';
-
       document.querySelector('.clock-display').style.filter = 'brightness(150%)';
     }
   };
 
   testColor();
-
-  // const testColor2 = function () {
-  //   const anzeige = [
-  //     jahrAnzeige,
-  //     monatsNameAnzeige,
-  //     tagAnzeige,
-  //     minuteAnzeige.sekundeAnzeige,
-  //     milliAnzeige,
-  //     wochenTagAnzeige,
-  //     datumAnzeige,
-  //     clockContainer,
-  //     uhrKasten,
-  //     clockKasten,
-  //     datumKasten,
-  //   ];
-
-  //   if (sekunde % 5 === 0) {
-  //     anzeige.map((x) => (x.style.backgroundColor = `rgb(${randomZahl()})`));
-  //   }
-  // };
-
-  // testColor2();
 }
 
+// testColor2();
 const inter = setInterval(clock, 400);
 console.log(inter);
 // clock();
