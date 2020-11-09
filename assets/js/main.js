@@ -43,9 +43,13 @@ function handler(ev) {
   const e = ev || window.Event;
   const target = e.target || e.srcElement;
   this.classList.toggle('selected');
-  console.log(`geklickt auf Knoten mi ID ${target.id}`);
+  console.log(`geklickt auf Knoten mit TARGET ID ${target.id}`);
   console.log(`geklickt auf Knoten mi ID ${this.id}`);
-  document.querySelector(`.selected`).style.backgroundColor = `rgb(${randomZahl()})`;
+  console.log(target.classList);
+  console.log(this);
+  target.style.backgroundColor = `rgb(${randomZahl()})`;
+  target.classList.toggle('selected1');
+  // target.style.transform = 'rotate(-180deg)';
 }
 
 function init() {

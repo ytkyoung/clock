@@ -9,7 +9,13 @@
   background-color: #fff;
   font-size: 5rem;
   transform: rotate(-5deg);
+  transition: all 1s ease-in-out;
 }
+.selected1 {
+  transform: rotate(-180deg);
+  transition: all 1s ease-in-out;
+}
+
 .container {
   margin: 0 auto;
   width: 85%;
