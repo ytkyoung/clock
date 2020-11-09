@@ -124,28 +124,6 @@ function clock() {
 
   testColor();
 
-  // const testColor2 = function () {
-  //   const anzeige = [
-  //     jahrAnzeige,
-  //     monatsNameAnzeige,
-  //     tagAnzeige,
-  //     minuteAnzeige.sekundeAnzeige,
-  //     milliAnzeige,
-  //     wochenTagAnzeige,
-  //     datumAnzeige,
-  //     clockContainer,
-  //     uhrKasten,
-  //     clockKasten,
-  //     datumKasten,
-  //   ];
-
-  //   if (sekunde % 5 === 0) {
-  //     anzeige.map((x) => (x.style.backgroundColor = `rgb(${randomZahl()})`));
-  //   }
-  // };
-
-  // testColor2();
-}
 
 const inter = setInterval(clock, 400);
 console.log(inter);
