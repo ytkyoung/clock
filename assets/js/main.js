@@ -72,7 +72,17 @@ function clock() {
   const milli = d.getMilliseconds();
 
   const kleinerZehn = (num) => (num < 10 ? `0${num}` : num);
-  const kleinerHundert = (num) => (num < 100 ? `0${num}` : num);
+  const kleinerHundert = (num) => {
+    let x;
+    if (num < 10) {
+      x = `00${num}`;
+    } else if (num < 100) {
+      x = `0${num}`;
+    } else {
+      x = num;
+    }
+    return x;
+  };
 
   jahrAnzeige.innerHTML = jahr;
   datumAnzeige.innerHTML = `${date}.${monat + 1}.${jahr}`;
