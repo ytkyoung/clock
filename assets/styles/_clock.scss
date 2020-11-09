@@ -8,7 +8,7 @@
 .container {
   margin: 0 auto;
   width: 85%;
-  padding: 5rem;
+  padding: 2rem;
   transition: all 2s ease-in-out;
 }
 
@@ -18,11 +18,24 @@
   padding: 2rem;
   transition: all 2s ease-in-out;
 }
+.clock-text div {
+  padding: 1rem;
+  transition: all 2s ease-in-out;
+}
+.clock-text div:last-child {
+  color: #fff;
+}
+.clock-text h1 {
+  padding: 2rem;
+  transition: all 2s ease-in-out;
+  background-color: #fff;
+}
 
 .clock-display {
   @include flex(space-between, center, row);
   padding: 2rem;
   transition: all 2s ease-in-out;
+  transform: scale(150%);
 }
 
 .datum-anzeige {
@@ -46,4 +59,45 @@
   background-color: darkgoldenrod;
   padding: 20rem;
   transition: all 2s ease-in-out;
+}
+
+.uhr-anzeige div {
+  padding: 0.3rem;
+}
+
+.uhr-anzeige div:last-child {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 842px) {
+  .clock-display {
+    @include flex(space-evenly, center, column);
+  }
+  .uhr-anzeige {
+    padding: 5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .clock-display {
+    @include flex(space-evenly, center, column);
+  }
+}
+
+@media (min-width: 992px) {
+  .clock-display {
+    @include flex(space-evenly, center, column);
+  }
+  .uhr-anzeige {
+    padding: 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .clock-display {
+    @include flex(space-evenly, center, row);
+  }
+  .uhr-anzeige {
+    padding: 20rem;
+  }
 }

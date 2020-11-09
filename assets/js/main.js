@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const monate = [
   'Januar',
   'Februar',
@@ -24,6 +25,19 @@ const milliAnzeige = document.getElementById('milisekunden');
 
 const wochenTagAnzeige = document.getElementById('wochen-tag');
 const monatsNameAnzeige = document.getElementById('monats-name');
+
+const clockContainer = document.querySelector('.clock');
+const uhrKasten = document.querySelector('.uhr-anzeige');
+const clockKasten = document.querySelector('.clock-display');
+const datumKasten = document.querySelector('.datum-anzeige');
+
+// Zufallszahl von 0 bis 255
+const generateRandom = () => Math.floor(Math.random() * 255);
+// drei zufallsZahlen von 255 in Array [R,G,B]
+const randomZahl = function () {
+  const containerRGB = [generateRandom(), generateRandom(), generateRandom()];
+  return containerRGB.join();
+};
 
 function clock() {
   const d = new Date();
@@ -62,31 +76,34 @@ function clock() {
       minuteAnzeige.style.backgroundColor = z;
       sekundeAnzeige.style.backgroundColor = z;
       milliAnzeige.style.backgroundColor = z;
-      wochenTagAnzeige.style.backgroundColor = y;
+      wochenTagAnzeige.style.backgroundColor = x;
       monatsNameAnzeige.style.backgroundColor = z;
-      document.querySelector('.clock').style.backgroundColor = x;
-      document.querySelector('.uhr-anzeige').style.backgroundColor = y;
-      document.querySelector('.clock-display').style.backgroundColor = z;
-      document.querySelector('.datum-anzeige').style.backgroundColor = y;
+      clockContainer.style.backgroundColor = `rgb(${randomZahl()})`;
+      uhrKasten.style.backgroundColor = y;
+      clockKasten.style.backgroundColor = z;
+      datumKasten.style.backgroundColor = y;
+      document.querySelector('#zeit').style.color = `rgb(${randomZahl()})`;
+
+      sekundeAnzeige.style.color = y;
+      minuteAnzeige.style.color = y;
+      stundeAnzeige.style.color = y;
+      tagAnzeige.style.color = y;
+      monatsNameAnzeige.style.color = y;
+      datumAnzeige.style.color = '#fff';
+
+      jahrAnzeige.style.color = z;
+      wochenTagAnzeige.style.color = z;
       // document.querySelector('.datum-anzeige').style.display = 'block';
     } else {
       // document.querySelector('.datum-anzeige').style.display = 'flex';
       sekundeAnzeige.style.fontSize = '10rem';
-      tagAnzeige.toUpperCase();
+
       document.querySelector('.clock-display').style.filter = 'brightness(150%)';
     }
   };
+
   testColor();
 }
 
 const inter = setInterval(clock, 400);
-
-// Zufallszahl von 0 bis 255
-const generateRandom = () => Math.floor(Math.random() * 255);
-// drei zufallsZahlen von 255 in Array [R,G,B]
-const randomZahl = function () {
-  const containerRGB = [generateRandom(), generateRandom(), generateRandom()];
-  return containerRGB.join();
-};
-
-console.log(randomZahl());
+console.log(inter);
