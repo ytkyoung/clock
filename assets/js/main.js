@@ -39,6 +39,22 @@ const randomZahl = function () {
   return containerRGB.join();
 };
 
+function handler(ev) {
+  const e = ev || window.Event;
+  const target = e.target || e.srcElement;
+  this.classList.toggle('selected');
+  console.log(`geklickt auf Knoten mi ID ${target.id}`);
+  console.log(`geklickt auf Knoten mi ID ${this.id}`);
+  document.querySelector(`.selected`).style.backgroundColor = `rgb(${randomZahl()})`;
+}
+
+function init() {
+  const elements = document.querySelectorAll('.level1');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', handler, false);
+  }
+}
+
 function clock() {
   const d = new Date();
 
@@ -103,7 +119,32 @@ function clock() {
   };
 
   testColor();
+
+  // const testColor2 = function () {
+  //   const anzeige = [
+  //     jahrAnzeige,
+  //     monatsNameAnzeige,
+  //     tagAnzeige,
+  //     minuteAnzeige.sekundeAnzeige,
+  //     milliAnzeige,
+  //     wochenTagAnzeige,
+  //     datumAnzeige,
+  //     clockContainer,
+  //     uhrKasten,
+  //     clockKasten,
+  //     datumKasten,
+  //   ];
+
+  //   if (sekunde % 5 === 0) {
+  //     anzeige.map((x) => (x.style.backgroundColor = `rgb(${randomZahl()})`));
+  //   }
+  // };
+
+  // testColor2();
 }
 
 const inter = setInterval(clock, 400);
 console.log(inter);
+// clock();
+
+document.addEventListener('DOMContentLoaded', init);

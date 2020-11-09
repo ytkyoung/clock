@@ -56,16 +56,23 @@ a {
   margin: 0 0 0 auto;
   background-color: lightgreen;
   height: 100vh;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+.selected {
+  background-color: #fff;
+  font-size: 5rem;
+  -webkit-transform: rotate(-5deg);
+          transform: rotate(-5deg);
 }
 
 .container {
   margin: 0 auto;
   width: 85%;
   padding: 2rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .clock-text {
@@ -85,14 +92,14 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 2rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .clock-text div {
   padding: 1rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .clock-text div:last-child {
@@ -101,8 +108,8 @@ a {
 
 .clock-text h1 {
   padding: 2rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   background-color: #fff;
 }
 
@@ -121,8 +128,8 @@ a {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 2rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   -webkit-transform: scale(150%);
           transform: scale(150%);
 }
@@ -143,14 +150,14 @@ a {
           flex-direction: row;
   width: 80%;
   padding: 2rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .datum-anzeige div {
   padding: 10px;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .datum-anzeige div:first-child {
@@ -173,8 +180,8 @@ a {
           flex-direction: row;
   background-color: darkgoldenrod;
   padding: 20rem;
-  -webkit-transition: all 2s ease-in-out;
-  transition: all 2s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .uhr-anzeige div {
@@ -203,6 +210,21 @@ a {
   }
   .uhr-anzeige {
     padding: 5rem;
+  }
+  .datum-anzeige {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 

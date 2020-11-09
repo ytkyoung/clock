@@ -2,39 +2,44 @@
   margin: 0 0 0 auto;
   background-color: lightgreen;
   height: 100vh;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
+.selected {
+  background-color: #fff;
+  font-size: 5rem;
+  transform: rotate(-5deg);
+}
 .container {
   margin: 0 auto;
   width: 85%;
   padding: 2rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .clock-text {
   @include flex(space-between, center, row);
   flex-wrap: wrap;
   padding: 2rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .clock-text div {
   padding: 1rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .clock-text div:last-child {
   color: #fff;
 }
 .clock-text h1 {
   padding: 2rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
   background-color: #fff;
 }
 
 .clock-display {
   @include flex(space-between, center, row);
   padding: 2rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
   transform: scale(150%);
 }
 
@@ -42,12 +47,12 @@
   @include flex(space-evenly, center, row);
   width: 80%;
   padding: 2rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .datum-anzeige div {
   padding: 10px;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .datum-anzeige div:first-child {
@@ -58,7 +63,7 @@
   @include flex(space-evenly, center, row);
   background-color: darkgoldenrod;
   padding: 20rem;
-  transition: all 2s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .uhr-anzeige div {
@@ -75,6 +80,9 @@
   }
   .uhr-anzeige {
     padding: 5rem;
+  }
+  .datum-anzeige {
+    @include flex(space-evenly, center, column);
   }
 }
 
