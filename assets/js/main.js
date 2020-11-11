@@ -80,6 +80,12 @@ const schwarzKasten = function () {
   const anzeige1 = [clockContainer, uhrKasten, clockKasten, datumKasten];
   anzeige1.map((x) => (x.style.backgroundColor = `red`));
   anzeige1.map((x) => x.classList.toggle('selected1'));
+  // const test2 = document.querySelectorAll('.level3', '.level4', '.level2', '.level1', 'level0');
+  // test2.forEach((element) => {
+  //   element.style.backgroundColor = 'red';
+  //   element.style.color = 'white';
+  // });
+  // test2.map((x) => x.classList.toggle('selected1'));
 };
 
 const isTeiler = (num) => num % 13 === 0;
@@ -119,6 +125,7 @@ const start = function () {
   wochenTagAnzeige.style.color = z;
   counter.style.color = z;
 };
+
 function clock() {
   const d = new Date();
 
